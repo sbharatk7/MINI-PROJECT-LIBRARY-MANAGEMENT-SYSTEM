@@ -148,7 +148,7 @@ def main():
 if __name__ == "__main__":
     main()
 
-!pip install -q streamlit
+
 !npm install localtunnel
 
 # Commented out IPython magic to ensure Python compatibility.
