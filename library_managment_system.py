@@ -149,7 +149,7 @@ if __name__ == "__main__":
     main()
 
 
-!npm install localtunnel
+
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile app.py
@@ -272,23 +272,9 @@ if __name__ == "__main__":
 #         else:
 #             st.warning("No matching books found.")
 
-!curl ipv4.icanhazip.com
-!streamlit run app.py & npx localtunnel --port 8501
 
-!pip install pyngrok -q
 
-from pyngrok import ngrok
-import os
 
-# Terminate any old hanging connections
-ngrok.kill()
-
-# Open a tunnel on port 8501
-public_url = ngrok.connect(8501)
-print("\n" + "="*50)
-print("🎉 YOUR WEB APP IS LIVE AT THIS LINK:")
-print(public_url)
-print("="*50 + "\n")
 
 # Start Streamlit background process
 os.system("streamlit run app.py &")
