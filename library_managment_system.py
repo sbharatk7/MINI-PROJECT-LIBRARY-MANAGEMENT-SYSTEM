@@ -116,35 +116,40 @@ def search_book(books):
 def main():
     books = load_data()
 
-    while True:
-        print("\n========================================")
-        print("   AKTU LIBRARY MANAGEMENT SYSTEM      ")
-        print("========================================")
-        print("1. Display All Books")
-        print("2. Add New Book")
-        print("3. Issue Book")
-        print("4. Return Book")
-        print("5. Search Book")
-        print("6. Exit")
+   import streamlit as st
 
-        choice = input("Select an option (1-6): ").strip()
+st.title("AKTU Library Management System")
 
-        if choice == "1":
-            display_books(books)
-        elif choice == "2":
-            add_book(books)
-        elif choice == "3":
-            issue_book(books)
-        elif choice == "4":
-            return_book(books)
-        elif choice == "5":
-            search_book(books)
-        elif choice == "6":
-            print("\nExiting Library System. Thank you!")
-            break
-        else:
-            print("Invalid Choice! Please enter a number from 1 to 6.")
+# Create a web-based menu selection
+menu = st.sidebar.selectbox(
+    "Select an Option",
+    ["Display All Books", "Add New Book", "Issue Book", "Return Book", "Search Book"]
+)
 
+        # 1. Create the web sidebar dropdown menu
+choice = st.sidebar.selectbox(
+    "Select an Option",
+    ["Display All Books", "Add New Book", "Issue Book", "Return Book", "Search Book"]
+)
+
+# 2. Map your existing functions to the web selections
+if choice == "Display All Books":
+    display_books(books)
+    
+elif choice == "Add New Book":
+    add_book(books)
+    
+elif choice == "Issue Book":
+    issue_book(books)
+    
+elif choice == "Return Book":
+    return_book(books)
+    
+elif choice == "Search Book":
+    search_book(books)
+
+
+      
 if __name__ == "__main__":
     main()
 
